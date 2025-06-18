@@ -26,7 +26,7 @@ public class Product {
     public Product() {
     }
 
-    // Constructor completo (sin ID)
+   
     public Product(String name, double price, Boolean status, Integer stock, Category category) {
         this.name = name;
         this.price = price;
