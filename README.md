@@ -86,10 +86,12 @@ POST `http://localhost:8080/api/products`
 PUT `http://localhost:8080/api/products/1`
 ```json
 {
-  "name": "Yerba Mate Premium",
-  "price": 1050.0,
-  "stock": 120,
-  "categoryId": 1
+  "name": "Nombre del Producto",
+  "price": 1800.0,
+  "stock": 50,
+  "categoryDTO": {
+    "id": 1
+  }
 }
 ```
 
