@@ -13,7 +13,7 @@ public class ProductMapper {
 
     private final CategoryRepository categoryRepository;
 
-    // Constructor manual
+    
     public ProductMapper(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
@@ -34,7 +34,7 @@ public class ProductMapper {
         return productEntity;
     }
 
-    // Convierte de Entidad a ProductDTO
+  
     public ProductDTO productEntityToProductDTO(Product productEntity) {
         ProductDTO productDTO = new ProductDTO();
         productDTO.setName(productEntity.getName());
@@ -43,7 +43,7 @@ public class ProductMapper {
         return productDTO;
     }
 
-    // Convierte de Entidad a ProductInfoDTO (usado en GET /products/info o /products/{id})
+    
     public ProductInfoDTO productEntityToProductInfoDTO(Product productEntity) {
         ProductInfoDTO dto = new ProductInfoDTO();
         dto.setId(productEntity.getId());
