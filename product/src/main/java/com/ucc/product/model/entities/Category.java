@@ -81,7 +81,6 @@ public class Category {
         this.products = products;
     }
 
-    // ----- toString (opcional, sin productos para evitar ciclos) -----
 
     @Override
     public String toString() {
