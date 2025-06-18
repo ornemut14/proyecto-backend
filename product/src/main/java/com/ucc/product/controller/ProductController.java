@@ -39,7 +39,7 @@ public class ProductController {
         return productService.getProductDTOById(id);
     }
 
-    // ✅ NUEVO: Obtener solo el nombre del producto (para microservicio de órdenes)
+    //Obtener solo el nombre del producto
     @GetMapping("/{id}/name")
     public ResponseEntity<String> getProductName(@PathVariable Long id) {
         Optional<Product> optionalProduct = productService.getProductById(id);
