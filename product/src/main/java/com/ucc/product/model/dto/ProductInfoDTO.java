@@ -6,7 +6,7 @@ public class ProductInfoDTO implements Serializable {
     private Long id;
     private String name;
     private CategoryDTO category;
-    private Integer stock; // ✅ Nuevo campo
+    private Integer stock; 
 
     public ProductInfoDTO() {
     }
