@@ -48,8 +48,7 @@ Microservicio de Órdenes:
 - Actualizar una orden  
 - Eliminar una orden  
 
-Pruebas con Postman
-Categorias: 
+Pruebas con Postman Categorias: 
 
 POST 'http://localhost:8080/api/categories'
 ```json
@@ -69,7 +68,7 @@ GET: http://localhost:8080/api/categories
 GET: http://localhost:8080/api/categories/1
 DELETE: http://localhost:8080/api/categories/1
 
-Productos:
+ Pruebas con Postman Productos:
 
 POST `http://localhost:8080/api/products`
 ```json
@@ -99,7 +98,7 @@ GET: `http://localhost:8080/api/products`
 DELETE: `http://localhost:8080/api/products/{id}`
 
 
-Órdenes:
+Pruebas con Postman Órdenes:
 
 POST `http://localhost:8081/api/orders`
 ```json
