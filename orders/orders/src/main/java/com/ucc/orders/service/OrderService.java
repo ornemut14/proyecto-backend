@@ -30,7 +30,7 @@ public class OrderService {
         this.orderMapper = orderMapper;
     }
 
-    // 🔐 Headers con autenticación
+  
     private HttpHeaders createAuthHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setBasicAuth("user", "1234");
@@ -38,7 +38,7 @@ public class OrderService {
         return headers;
     }
 
-    // 🔸 Crear orden
+
     public OrderResponseDTO createOrder(OrderRequestDTO dto) throws ProductNotFoundException {
         HttpEntity<String> entity = new HttpEntity<>(createAuthHeaders());
 
@@ -88,7 +88,7 @@ public class OrderService {
 
         HttpEntity<String> entity = new HttpEntity<>(createAuthHeaders());
 
-        // 🟡 1. Devolver stock anterior
+        
         restTemplate.exchange(
                 PRODUCT_SERVICE_URL + "/" + existingOrder.getProductId() + "/stock/add?quantity=" + existingOrder.getQuantity(),
                 HttpMethod.PUT,
@@ -96,7 +96,7 @@ public class OrderService {
                 Void.class
         );
 
-        // 🟠 2. Validar existencia del nuevo producto
+
         ResponseEntity<Boolean> existsResponse = restTemplate.exchange(
                 PRODUCT_SERVICE_URL + "/exists/" + dto.getProductId(),
                 HttpMethod.GET,
@@ -108,7 +108,6 @@ public class OrderService {
             throw new ProductNotFoundException("El producto con ID " + dto.getProductId() + " no existe.");
         }
 
-        // 🔴 3. Verificar stock suficiente para la nueva cantidad
         ResponseEntity<Integer> stockResponse = restTemplate.exchange(
                 PRODUCT_SERVICE_URL + "/" + dto.getProductId() + "/stock",
                 HttpMethod.GET,
@@ -120,7 +119,7 @@ public class OrderService {
             throw new InsufficientStockException("Stock insuficiente para el producto con ID " + dto.getProductId());
         }
 
-        // 🟢 4. Descontar el nuevo stock
+        
         restTemplate.exchange(
                 PRODUCT_SERVICE_URL + "/" + dto.getProductId() + "/stock?quantity=" + dto.getQuantity(),
                 HttpMethod.PUT,
@@ -128,7 +127,7 @@ public class OrderService {
                 Void.class
         );
 
-        // 🔵 5. Actualizar la orden
+        
         existingOrder.setProductId(dto.getProductId());
         existingOrder.setQuantity(dto.getQuantity());
         existingOrder.setOrderDate(dto.getOrderDate());
@@ -137,20 +136,20 @@ public class OrderService {
         return orderMapper.entityToResponseDto(saved);
     }
 
-    // 🔍 Obtener todas las órdenes
+  
     public List<OrderResponseDTO> getAllOrders() {
         return orderRepository.findAll().stream()
                 .map(orderMapper::entityToResponseDto)
                 .collect(Collectors.toList());
     }
 
-    // 🔍 Obtener por ID
+    
     public Optional<OrderResponseDTO> getOrderById(Long id) {
         return orderRepository.findById(id)
                 .map(orderMapper::entityToResponseDto);
     }
 
-    // 🗑️ Eliminar
+ 
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
     }
