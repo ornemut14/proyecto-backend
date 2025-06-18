@@ -29,12 +29,17 @@ El microservicio de órdenes consulta al microservicio de productos para:
 - Obtener el nombre del producto para mostrar en las órdenes  
 
 Funcionalidades Principales
-Microservicio de Productos:
-- Crear un producto  
-- Obtener todos los productos  
-- Obtener un producto por ID  
-- Actualizar un producto  
-- Eliminar un producto  
+- Microservicio de Productos:
+- Crear una categoría
+- Obtener todas las categorías
+- Obtener una categoría por ID
+- Actualizar una categoría
+- Eliminar una categoría
+- Crear un producto
+- Obtener todos los productos
+- Obtener un producto por ID
+- Actualizar un producto
+- Eliminar un producto
 
 Microservicio de Órdenes:
 - Crear una orden  
@@ -44,6 +49,26 @@ Microservicio de Órdenes:
 - Eliminar una orden  
 
 Pruebas con Postman
+Categorias: 
+
+POST 'http://localhost:8080/api/categories'
+```json
+{
+  "name": "Bebidas"
+}
+```
+
+PUT http://localhost:8080/api/categories/1
+```json
+{
+  "name": "Bebidas Naturales"
+}
+```
+
+GET: http://localhost:8080/api/categories
+GET: http://localhost:8080/api/categories/1
+DELETE: http://localhost:8080/api/categories/1
+
 Productos:
 
 POST `http://localhost:8080/api/products`
@@ -52,7 +77,9 @@ POST `http://localhost:8080/api/products`
   "name": "Yerba Mate",
   "price": 950.0,
   "stock": 100,
-  "categoryId": 1
+  "categoryDTO": {
+    "id": 1
+  }
 }
 ```
 
