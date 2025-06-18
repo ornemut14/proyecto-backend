@@ -7,7 +7,6 @@ public class CategoryDTO implements Serializable {
     private Long id;
 
     public CategoryDTO() {
-        // Constructor vacío
     }
 
     public CategoryDTO(Long id) {
