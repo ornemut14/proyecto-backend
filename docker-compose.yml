@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db-product:
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: product
+      POSTGRES_USER: ornella
+      POSTGRES_PASSWORD: ornella
+    ports:
+      - 5431:5431
+    expose:
+      - 5431
+    command: -p 5431
+
+  db-orders:
+    image: postgres:15.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: orders
+      POSTGRES_USER: ornella
+      POSTGRES_PASSWORD: ornella
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    command: -p 5432
