@@ -1,32 +1,3 @@
-/*package com.ucc.orders.exceptions;
-
-import com.ucc.orders.exceptions.dto.ErrorMensajeDTO;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-@ControllerAdvice
-public class GlobalExceptionHandler {
-
-    @ExceptionHandler(OrderNotFoundException.class)
-    public ResponseEntity<ErrorMensajeDTO> handleOrderNotFound(OrderNotFoundException ex, HttpServletRequest request) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(new ErrorMensajeDTO(404, ex.getMessage(), request.getRequestURI()));
-    }
-
-    @ExceptionHandler(ProductCommunicationException.class)
-    public ResponseEntity<ErrorMensajeDTO> handleProductCommunication(ProductCommunicationException ex, HttpServletRequest request) {
-        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
-                .body(new ErrorMensajeDTO(503, ex.getMessage(), request.getRequestURI()));
-    }
-
-    @ExceptionHandler(InsufficientStockException.class)
-    public ResponseEntity<ErrorMensajeDTO> handleInsufficientStock(InsufficientStockException ex, HttpServletRequest request) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorMensajeDTO(400, ex.getMessage(), request.getRequestURI()));}
-}*/
-
 package com.ucc.orders.exceptions;
 
 import com.ucc.orders.exceptions.dto.ErrorMensajeDTO;
