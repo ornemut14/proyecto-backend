@@ -29,8 +29,6 @@ public class Category {
     @JsonIgnore
     private List<Product> products = new ArrayList<>();
 
-    // ----- Constructores -----
-
     public Category() {
     }
 
@@ -47,8 +45,7 @@ public class Category {
         this.status = status;
     }
 
-    // ----- Getters y Setters -----
-
+ 
     public Long getId() {
         return id;
     }
