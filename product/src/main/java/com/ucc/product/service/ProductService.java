@@ -98,7 +98,6 @@ public class ProductService {
         }
     }
 
-    // ✅ Método nuevo para descontar stock
     public void reduceStock(Long id, Integer quantity) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado con ID: " + id));
