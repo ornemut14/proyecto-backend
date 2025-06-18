@@ -98,23 +98,24 @@ PUT `http://localhost:8080/api/products/1`
 GET: `http://localhost:8080/api/products`  
 DELETE: `http://localhost:8080/api/products/{id}`
 
----
 
 Órdenes:
 
 POST `http://localhost:8081/api/orders`
 ```json
 {
-  "productId": 1,
-  "quantity": 2
+  "productId": 10,
+  "quantity": 2,
+  "orderDate": "2025-06-18T00:00:00"
 }
 ```
 
 PUT `http://localhost:8081/api/orders/1`
 ```json
 {
-  "productId": 1,
-  "quantity": 3
+  "productId": 10,
+  "quantity": 7,
+  "orderDate": "2025-06-18T00:00:00"
 }
 ```
 
